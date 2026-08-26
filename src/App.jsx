@@ -166,7 +166,10 @@ function App() {
           <Document file={activeDoc.file_url} onLoadSuccess={onDocumentLoadSuccess}>
             {Array.from({ length: numPages || 0 }, (_, index) => (
               <div key={index + 1} ref={(el) => (pageRefs.current[index] = el)}>
-                <Page pageNumber={index + 1} />
+                <Page
+                  pageNumber={index + 1}
+                  width={Math.min(window.innerWidth - 40, 700)}
+                />
               </div>
             ))}
           </Document>
